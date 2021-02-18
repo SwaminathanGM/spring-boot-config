@@ -2,6 +2,7 @@ package com.swamicodes.springbootconfig;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,20 +14,22 @@ public class GreetingsController {
 	@Value("${my.greetings}")
 	private String myGreetings;
 	
-	@Value("${app.name}")
+	@Value("Some Static Message")
 	private String appName;
 	
-	@Value("${app.description}")
+	@Value("${app.description: Default Value}")
 	private String appDescription;
 	
+	@Value("${my.list.values}")
+	private List<String> listValues;
+	
+	@Value("#{${dbvalues}}")
+	private Map<String, String> dbValues;
+	
 	@GetMapping("/greetings")
-	public List<String> greetings() {
-		
-		List<String> stringList = new ArrayList<>();
-		stringList.add(myGreetings);
-		stringList.add(appName);
-		stringList.add(appDescription);
-		return stringList;
+	public String greetings() {
+	
+		return myGreetings + appName + appDescription + listValues + dbValues;
 	}
 
 }
