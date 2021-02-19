@@ -30,7 +30,7 @@ public class GreetingsYamlController {
 	private Map<String, String> dbValues;
 
 	@Autowired
-	private DbSettings dbSettings;
+	private DbSettingsYml dbSettingsYml;
 
 	@GetMapping("/greetings")
 	public String greetings() {
@@ -40,7 +40,7 @@ public class GreetingsYamlController {
 
 	@GetMapping("/db")
 	public String dbSettings() {
-		return dbSettings.getConnection() + dbSettings.getHost() + dbSettings.getPort();
+		return dbSettingsYml.getConnection() + dbSettingsYml.getHost() + dbSettingsYml.getPort();
 	}
 
 

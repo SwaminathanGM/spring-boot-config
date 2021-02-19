@@ -1,0 +1,15 @@
+our:
+    greetings: Hello World YML Test
+    list.values: Four, Five, Six
+
+
+service: 
+    name: Spring Boot Config with YML
+    description: Welcome to ${app.name}
+
+database: 
+    connection: "{url:'http://_____', username:'YML Admin User', password:'YML Admin Password'}"
+    host: 127.0.0.2
+    port: 2400
+
+management.endpoints.web.exposure.include: "*"
